@@ -1,7 +1,7 @@
 import React from 'react';
 import PostListItem from '../post-list-item/post-list-item';
 
-const PostList = ({posts, onDelete}) => {
+const PostList = ({posts, onDelete, onToggleImportant, onToggleLiked}) => {
     const elements = posts.map((item) => {
         if (item.id && item.label) {
             return (
@@ -9,6 +9,8 @@ const PostList = ({posts, onDelete}) => {
                     <PostListItem 
                         { ...item }
                         onDelete = { () => onDelete(item.id)}
+                        onToggleImportant = { () => onToggleImportant(item.id)}
+                        onToggleLiked = { () => onToggleLiked(item.id)}
                     />
                 </li>
             )
